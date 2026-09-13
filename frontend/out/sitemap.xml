@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://pomopet.app/</loc>
+<lastmod>2026-09-13T16:32:12.129Z</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://pomopet.app/tasks/</loc>
+<lastmod>2026-09-13T16:32:12.129Z</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://pomopet.app/shop/</loc>
+<lastmod>2026-09-13T16:32:12.129Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://pomopet.app/inventory/</loc>
+<lastmod>2026-09-13T16:32:12.129Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://pomopet.app/profile/</loc>
+<lastmod>2026-09-13T16:32:12.129Z</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+</urlset>

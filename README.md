@@ -58,33 +58,28 @@ Bạn chỉ cần lấy điện thoại quét mã QR trong app hoặc gõ địa
 
 ## 📁 Cấu Trúc Mã Nguồn
 
-```
-d:/code/New folder/
-├── main.go                       # Máy chủ Go, phát hiện Wi-Fi IP, nhúng web UI
-├── pomopet.exe                   # File thực thi độc lập (8MB) nhúng toàn bộ UI
-├── run_app.bat                   # File khởi chạy nhanh cho Windows
-├── go.mod                        # Cấu hình Go module
-├── internal/
-│   ├── model/
-│   │   └── models.go             # Cấu trúc dữ liệu Mobile: Pet, Pomodoro, Task, Shop
-│   ├── store/
-│   │   └── store.go              # Lưu trữ JSON bền vững an toàn đa luồng
-│   ├── pet/
-│   │   ├── pet_service.go        # Logic thú cưng, chỉ số, tiến hóa
-│   │   └── pet_test.go           # Unit tests pet
-│   ├── pomodoro/
-│   │   ├── pomo_service.go       # Logic phiên tập trung, thưởng xu & EXP
-│   │   └── pomo_test.go          # Unit tests pomodoro
-│   └── api/
-│       └── handler.go            # REST API endpoints
-└── web/
-    ├── manifest.json             # Cấu hình PWA cài đặt lên màn hình điện thoại
-    ├── sw.js                     # Service Worker lưu cache offline
-    ├── index.html                # Giao diện Mobile App với Bottom Nav & Mockup Chassis
-    ├── css/
-    │   └── style.css             # CSS Mobile-First, Touch interactions, Animations
-    └── js/
-        ├── pet.js                # Canvas render hoạt ảnh thú cưng
-        ├── timer.js              # Pomodoro timer & Web Audio Synthesizer
-        └── app.js                # Điều khiển Bottom Nav, Haptic touch, kết nối Wi-Fi
+```text
+pomopet/
+├── main.go                       # Máy chủ Go (GORM MySQL, REST API, CORS, nhúng Next.js)
+├── pomopet.exe                   # File thực thi độc lập nhúng toàn bộ UI Next.js tĩnh
+├── run_app.bat                   # Khởi chạy 1-click cho Windows
+├── go.mod                        # Cấu hình Go module (Go 1.22, GORM)
+├── internal/                     # Clean Modular Architecture (Backend)
+│   ├── common/                   # Config, Database GORM, EventBus, JWT, Middleware
+│   ├── modules/                  # Auth, Pet, Pomodoro, Task, Shop
+│   └── router/                   # REST API Routing & Handlers
+└── frontend/                     # Next.js App Router (TypeScript, Tailwind CSS, Lucide)
+    ├── app/                      # App Router (SEO Layout, OpenGraph, JSON-LD, Sitemap, Robots)
+    │   ├── layout.tsx            # Metadata SEO, OpenGraph, Twitter Card, Schema.org
+    │   ├── page.tsx              # Focus & Pet Companion (Pre-rendered SEO)
+    │   ├── tasks/page.tsx        # Quản lý nhiệm vụ To-Do
+    │   ├── shop/page.tsx         # Cửa hàng vật phẩm & phụ kiện
+    │   ├── inventory/page.tsx    # Túi đồ & trang bị thú cưng
+    │   ├── profile/page.tsx      # Hồ sơ, chuỗi ngày, nhiệm vụ ngày
+    │   ├── sitemap.ts            # Tự động sinh sitemap.xml chuẩn SEO
+    │   └── robots.ts             # Tự động sinh robots.txt
+    ├── components/               # 2D Canvas Pet, Pomodoro Timer, Navigation, Modals
+    ├── context/                  # AppContext đồng bộ trực tiếp Golang REST API
+    ├── lib/                      # API Client & Web Audio Synthesizer
+    └── out/                      # Thư mục build tĩnh xuất bản pre-rendered cho SEO & Go embed
 ```
